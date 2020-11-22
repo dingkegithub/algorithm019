@@ -53,14 +53,6 @@ func recursion(level int, maxLevel int, p1, p2, int) {
 
 > 5、分治解题思路
 
-- 设定边界结束条件
-
-- 处理当前逻辑
-
-- 下探一层处理子问题
-
-- 合并子问题结束
-
 ```
 func divideConquer(problem *P, param1, param2) {
      // 子问题结束条件
@@ -70,15 +62,16 @@ func divideConquer(problem *P, param1, param2) {
     } 
   
     // 处理当前问题， 
-    data := prepare_data(problem) 
-    subproblems = splitProblem(problem, data)
+    subproblems = splitProblem(problem)
 
     // 下探一层处理子问题
     res1 := divideConquer(subproblems[0], p1)
     res2 := divideConquer(subproblems[2], p1)
 
     // 合并子问题
-    result := process_result(res1, res1)
+    result := mergeSubResult(res1, res1)
+
+    reverseStates()
 }
 ```
 
